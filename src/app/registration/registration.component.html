@@ -1,0 +1,151 @@
+<div class="popup">
+  <div class="popup-inner">
+
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <!-- Name -->
+<div class="register">
+<h1 >Register</h1>
+
+  <p><a href=""><i class="fas fa-times"></i></a> </p>
+
+</div>
+<div class="form-n">
+<div class="form-info" >
+   
+  <input type="text" id="name" formControlName="name" class="form-control" placeholder="First Name" maxlength="20">
+  
+  <div *ngIf="myForm.get('name').invalid && (myForm.get('name').dirty || myForm.get('name').touched)">
+    <small  *ngIf="myForm.get('name').errors.required">FirstName is required</small>
+
+    
+  </div>
+</div>
+
+<div class="form-info">
+  
+  <input type="text" id="name1" formControlName="name" class="form" placeholder="Last Name">
+  <div *ngIf="myForm.get('name').invalid && (myForm.get('name').dirty || myForm.get('name').touched)">
+    <small class="text-danger" *ngIf="myForm.get('name').errors.required">LastName is required</small>
+  </div>
+</div>
+</div>
+<div class="form-contain">
+<div class="form-pic">
+
+
+     
+<img [src]="randomImageUrl" alt="Random Image" *ngIf="!imageUrl" >
+<br><br>
+<div class="image-container" *ngIf="imageUrl">
+  <img [src]="imageUrl"  alt="Uploaded Image" width="300" height="320">
+</div>
+<input type="file"  (change)="onFileSelected($event)">
+
+</div>
+<div class="form-data">
+  
+ <br>
+  <!-- Email -->
+  <div class="form-info">
+   
+    <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email">
+    <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+      <small *ngIf="myForm.get('email').errors.required">Email is required</small>
+      <small *ngIf="myForm.get('email').errors.email">Invalid email format</small>
+    </div>
+  </div>
+<br>
+  <!-- Telephone Number -->
+  <div class="form-info">
+   
+    <input type="tel" id="telephone" formControlName="telephone" class="form-control" placeholder="(567) 858-8798">
+    <div *ngIf="myForm.get('telephone').invalid && (myForm.get('telephone').dirty || myForm.get('telephone').touched)">
+      <small  *ngIf="myForm.get('telephone').errors.required">Telephone number is required</small>
+    </div>
+  </div>
+  <br>
+  <!-- Age (using range slider) -->
+  <div class="form-info">
+    age
+    <br>
+    <small> 18</small>
+    <input type="range" id="age" formControlName="age" class="form-control-range" min="18"  max="60"  width="30%" > <small>60</small>
+    
+    <div *ngIf="myForm.get('age').invalid && (myForm.get('age').dirty || myForm.get('age').touched)">
+      <small  *ngIf="myForm.get('age').errors.required">{{age}}Age is required</small>
+    </div>
+  </div>
+  <br>
+
+  
+   <div class="form-info">
+    
+    <input type="text" id="homeAddress" formControlName="homeAddress" class="form-control" placeholder="homeAddress">
+  </div>
+  <br>
+
+  <div class="form-info">
+    
+    <input type="text" id="companyAddress" formControlName="companyAddress" class="form-control" placeholder="companyAddress">
+  </div>
+  <br>
+  <div class="form-info">
+    <select name="text" id="state" formControlName="state" class="form-control">
+    <option value="">State</option>
+    <option value="m">Maharashtra</option>
+    <option value="u">Uttar Pardesh</option>
+    <option value="g">Gujrat</option>
+    <option value="a">Asam</option>
+    <option value="b">Bihar</option>
+  </select>
+
+  </div> 
+  <br>
+
+  <div class="form-info"> 
+    <select name="text" id="country" formControlName="country" class="form-control">
+      <option value="">country</option>
+      <option value="India">India</option>
+      <option value="Albania">Albania</option>
+      <option value="Algeria">Algeria</option>
+      <option value="American Samoa">American Samoa</option>
+      <option value="Andorra">Andorra</option>
+      <option value="Angola">Angola</option>
+      <option value="Anguilla">Anguilla</option>
+      <option value="Antarctica">Antarctica</option>
+      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Armenia">Armenia</option>
+      <option value="Aruba">Aruba</option>
+      <option value="Australia">Australia</option>
+      <option value="Austria">Austria</option>
+      <option value="Azerbaijan">Azerbaijan</option>
+      </select>
+  </div>
+  <br>
+  <!-- Tags -->
+  <div class="form-info">
+    <input type="text" id="tags" formControlName="tags" class="form-control" placeholder="tags">
+  </div>
+
+  <br>
+  <div class="bt2">
+    <button type="button" class="btn">cricket</button>
+  <button type="button" class="btn">football</button>
+  <button type="button" class="btn">hockey</button>
+  </div>
+  <!-- Submit Button -->
+  <br>
+  <br>
+  <div class="form-btn">
+    <button type="reset" class="Cancel" (click)="closePopup()">Cancel</button>
+
+    <button type="submit" class="sub" >Submit</button>
+  <br><br><br>
+</div>
+</div>
+</div>
+</form>
+
+</div>
+</div>
